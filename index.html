@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>妹宝今天的心情</title>
+  <style>
+    /* 设置整体样式 */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #ffe6f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* 父元素样式 */
+    .container {
+      background-color: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+      position: relative;
+    }
+
+    /* 问题文字样式 */
+    .question {
+      font-size: 18px;
+      font-weight: bold;
+      color: #d36c8c;
+      margin-bottom: 20px;
+    }
+
+    /* 按钮样式 */
+    .option {
+      display: block;
+      background-color: #ffd1dc;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      border: none;
+      border-radius: 30px;
+      padding: 10px;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    /* 悬停效果 */
+    .option:hover {
+      background-color: #ff99ac;
+      transform: scale(1.05);
+    }
+
+    /* 选中状态 */
+    .option.selected {
+      background-color: #ff7f9d;
+      box-shadow: 0 0 10px rgba(255, 127, 157, 0.6);
+    }
+
+    /* 确认按钮 */
+    .confirm {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #ffb6c1;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .confirm:hover {
+      background-color: #ff7f9d;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="question">妹宝今天</div>
+    <button class="option" onclick="handleAnswer(this, 'A')">A. 开心嘛</button>
+    <button class="option" onclick="handleAnswer(this, 'B')">B. 有哪里不开心嘛</button>
+    <button class="confirm" onclick="confirmChoice()">确认</button>
+  </div>
+
+  <script>
+    let selectedAnswer = '';
+    const options = document.querySelectorAll('.option');
+
+    function handleAnswer(button, answer) {
+      // 移除其他按钮的选中状态
+      options.forEach(option => option.classList.remove('selected'));
+
+      // 设置当前按钮为选中状态
+      button.classList.add('selected');
+      selectedAnswer = answer;
+    }
+
+    function confirmChoice() {
+      if (selectedAnswer === 'A') {
+        alert('太棒啦！记住这一天~');
+      } else if (selectedAnswer === 'B') {
+        alert('没事的，以后每一天都开心！');
+      } else {
+        alert('请先选择一个选项哦！');
+      }
+    }
+  </script>
+</body>
+</html>
